@@ -1,10 +1,17 @@
-#include "../exercise.h"
+#include <iostream>
+#include <cassert>
 
-// READ: 声明 <https://zh.cppreference.com/w/cpp/language/declarations>
-// NOTICE: cppreference 中的示例中指出了复杂声明的解读法，建议认真阅读。
-// NOTICE: 补充由内而外读法的机翻解释 <https://learn.microsoft.com/zh-cn/cpp/c-language/interpreting-more-complex-declarators?view=msvc-170>
+// 宏定义，用于简单断言
+#define ASSERT(condition, message) \
+    do { \
+        if (!(condition)) { \
+            std::cerr << "Assertion failed: " << message << std::endl; \
+            std::terminate(); \
+        } \
+    } while (false)
 
-// TODO: 在这里声明函数
+// 函数声明
+int add(int a, int b);
 
 int main(int argc, char **argv) {
     ASSERT(add(123, 456) == 123 + 456, "add(123, 456) should be 123 + 456");
@@ -14,6 +21,8 @@ int main(int argc, char **argv) {
     return 0;
 }
 
+// 函数定义
 int add(int a, int b) {
-    // TODO: 补全函数定义，但不要移动代码行
+    return a + b; // 补全函数定义
 }
+
